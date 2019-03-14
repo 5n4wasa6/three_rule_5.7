@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\User as UserResource;
+use App\Http\Resources\User\User as UserResource;
 use Illuminate\Http\Request;
 
-use App\Models\Fan;
+// use App\Models\Fan;
 use App\Models\MyJournal;
 use App\Models\Mypage;
 use App\Models\User;

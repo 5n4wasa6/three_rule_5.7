@@ -12,7 +12,7 @@ use App\Models\Mypage;
 use App\User;
 use JWTAuth;
 
-use App\Http\Resources\SelectClub as Resource;
+use App\Http\Resources\Club\SelectClub as Resource;
 
 class AuthController extends Controller
 {
@@ -74,16 +74,15 @@ class AuthController extends Controller
         ]);
     }
     
-    public function store($id) {
-        
-        $follow = new Fan;
-        $follow->user_id        = auth()->user()->id;
-        $follow->follow_user_id = $id;
-        // $follow->status         = 0;
-        // $follow->reject         = 0;
-        $follow->save();
-        
-        return response()->json($follow);
-    }
+    // public function store($id) 
+    // {
+    //     $follow = new Fan;
+    //     $follow->user_id        = auth()->user()->id;
+    //     $follow->follow_user_id = $id;
+    //     // $follow->status         = 0;
+    //     // $follow->reject         = 0;
+    //     $follow->save();
+    //     return response()->json($follow);
+    // }
 }
 

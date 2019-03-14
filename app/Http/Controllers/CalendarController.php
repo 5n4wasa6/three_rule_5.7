@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Resources\CalendarClub as CalendarClubResource;
+use App\Http\Resources\Calendar\Calendar as CalendarResource;
 
 use Illuminate\Http\Request;
 use App\Models\Calendar;
@@ -12,7 +12,7 @@ class CalendarController extends Controller
 {
     public function index($id)
     {
-        $calendars = CalendarClubResource::collection(
+        $calendars = CalendarResource::collection(
                  Calendar::where("club_id",$id)->get()
                 );
         return $calendars;
@@ -44,7 +44,7 @@ class CalendarController extends Controller
         $calendar->description = $request->description;
         $calendar->save();
         
-        $calendars = CalendarClubResource::collection(
+        $calendars = CalendarResource::collection(
                  Calendar::where("club_id",$id)->get()
                 );
         return $calendars;
