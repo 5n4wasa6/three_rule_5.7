@@ -22,7 +22,7 @@ class CreateClubsTable extends Migration
             $table->string('club_name');
             $table->string('club_calling');
             $table->string('image')->nullable();
-            $table->string('policy')->default('(例)休んで勝つ!!');
+            // $table->string('policy')->default('(例)休んで勝つ!!');
             $table->string('rule_one')->default('(例)敬語禁止(リスペクトは大事)');
             $table->string('rule_two')->default('(例)批判禁止(できない理由を探さない,できる方法を考える)');
             $table->string('rule_three')->default('(例)とにかくトライ(トライしないことが失敗)');

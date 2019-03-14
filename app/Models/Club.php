@@ -7,54 +7,54 @@ use Illuminate\Database\Eloquent\Model;
 class Club extends Model
 {
     public function user() {
-        return $this->hasMany('App\User');
+        return $this->hasMany('User::class');
     }
-    public function school_calling() {
-        return $this->belongsTo('App\SchoolCalling');
-    }
-        public function club_calling() {
-    return $this->belongsTo('App\ClubCalling');
-    }
+    // public function school_calling() {
+    //     return $this->belongsTo('SchoolCalling::class');
+    // }
+    // public function club_calling() {
+    //     return $this->belongsTo('ClubCalling::class');
+    // }
     
     
-    public function club_fan() {
-        return $this->hasMany('App\ClubFan');
-    }
+    // public function club_fan() {
+    //     return $this->hasMany('ClubFan::class');
+    // }
     public function club_member() {
-        return $this->hasMany('App\ClubMember');
+        return $this->hasMany('ClubMember::class');
     }
-    public function strategy() {
-        return $this->hasMany('App\Strategy');
-    }
+    // public function strategy() {
+    //     return $this->hasMany('Strategy::class');
+    // }
     
     public function discussion() {
-        return $this->hasMany('App\Discussion');
+        return $this->hasMany('Discussion::class');
     }
     public function discussion_comment() {
-        return $this->hasMany('App\DiscussionComment');
+        return $this->hasMany('DiscussionComment::class');
     }
     
     public function menu() {
         return $this->hasMany('App\Menu');
     }
-    public function menu_tag() {
-        return $this->hasMany('App\MenuTag');
-    }
-    public function menu_comment() {
-        return $this->hasMany('App\MenuComment');
-    }
+    // public function menu_tag() {
+    //     return $this->hasMany('MenuTag::class');
+    // }
+    // public function menu_comment() {
+    //     return $this->hasMany('MenuComment::class');
+    // }
     
     public function calendar() {
-        return $this->hasMany('App\Calendar');
+        return $this->hasMany('Calendar::class');
     }
-    public function calendar_comment() {
-    return $this->hasMany('App\CalendarComment');
-    }
+    // public function calendar_comment() {
+    // return $this->hasMany('App\CalendarComment');
+    // }
     
-    public function journal() {
-        return $this->hasMany('App\Journal');
-    }
-    public function journal_comment() {
-        return $this->hasMany('App\JournalComment');
-    }
+    // public function journal() {
+    //     return $this->hasMany('App\Journal');
+    // }
+    // public function journal_comment() {
+    //     return $this->hasMany('App\JournalComment');
+    // }
 }
