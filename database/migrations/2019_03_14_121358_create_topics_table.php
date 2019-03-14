@@ -13,7 +13,7 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
             $table->string('url');

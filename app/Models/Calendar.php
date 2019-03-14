@@ -7,20 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Calendar extends Model
 {
     public function user() {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('User::class');
     }
     public function club() {
-          return $this->belongsTo('App\Club');
+          return $this->belongsTo('Club::class');
     }
-    public function activity() {
-          return $this->belongsTo('App\Activity');
-    }
+    // public function activity() {
+    //       return $this->belongsTo('Activity::class');
+    // }
       
       
-    public function calendar_count() {
-        return $this->hasMany('App\CalendarCount');
-    }
-    public function calendar_comments() {
-        return $this->hasMany('App\CalendarComment');
-    }
+    // public function calendar_count() {
+    //     return $this->hasMany('CalendarCount::class');
+    // }
+    // public function calendar_comments() {
+    //     return $this->hasMany('CalendarComment::class');
+    // }
 }
