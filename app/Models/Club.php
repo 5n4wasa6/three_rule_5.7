@@ -17,44 +17,44 @@ class Club extends Model
     }
     
     
-    public function club_fan(){
+    public function club_fan() {
         return $this->hasMany('App\ClubFan');
     }
-    public function club_member(){
+    public function club_member() {
         return $this->hasMany('App\ClubMember');
     }
-    public function strategy(){
+    public function strategy() {
         return $this->hasMany('App\Strategy');
     }
     
-    public function discussion(){
+    public function discussion() {
         return $this->hasMany('App\Discussion');
     }
-    public function discussion_comment(){
+    public function discussion_comment() {
         return $this->hasMany('App\DiscussionComment');
     }
     
-    public function menu(){
+    public function menu() {
         return $this->hasMany('App\Menu');
     }
-    public function menu_tag(){
+    public function menu_tag() {
         return $this->hasMany('App\MenuTag');
     }
-    public function menu_comment(){
+    public function menu_comment() {
         return $this->hasMany('App\MenuComment');
     }
     
-    public function calendar(){
+    public function calendar() {
         return $this->hasMany('App\Calendar');
     }
-    public function calendar_comment(){
+    public function calendar_comment() {
     return $this->hasMany('App\CalendarComment');
     }
     
-    public function journal(){
+    public function journal() {
         return $this->hasMany('App\Journal');
     }
-    public function journal_comment(){
+    public function journal_comment() {
         return $this->hasMany('App\JournalComment');
     }
 }
