@@ -8,9 +8,9 @@ use App\Models\ClubMember;
 use App\Models\Topic;
 use App\User;
 
-use App\Http\Resources\Club as ClubResource;
-use App\Http\Resources\SelectClub as SelectClubResource;
-use App\Http\Resources\SelectUser as SelectUserResource;
+use App\Http\Resources\Club\Club as ClubResource;
+use App\Http\Resources\Club\SelectClub as SelectClubResource;
+use App\Http\Resources\User\SelectUser as SelectUserResource;
 use DB;
 
 class ClubController extends Controller

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\DiscussionClub as DiscussionClubResource;
+use App\Http\Resources\Discussion\Club as ClubDiscussionResource;
 
 use App\Models\Club;
 use App\Models\Discussion;
@@ -17,7 +17,7 @@ class DiscussionController extends Controller
 {
     public function index($id)
     {
-        $discussions = DiscussionClubResource::collection(
+        $discussions = ClubDiscussionResource::collection(
             Club::with(
                 'club_member',
                 'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -61,7 +61,7 @@ class DiscussionController extends Controller
         // $discussion -> image   = $fileName;
         $discussion -> save();
         
-        $discussions = DiscussionClubResource::collection(
+        $discussions = ClubDiscussionResource::collection(
             Club::with(
                 'club_member',
                 'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -88,7 +88,7 @@ class DiscussionController extends Controller
         $discussion->image   = $request->image;
         $discussion->save();
         
-        $discussions = DiscussionClubResource::collection(
+        $discussions = ClubDiscussionResource::collection(
             Club::with(
                 'club_member',
                 'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -103,7 +103,7 @@ class DiscussionController extends Controller
         if($discussion -> count()) {
             $discussion -> delete();
             
-            $discussions = DiscussionClubResource::collection(
+            $discussions = ClubDiscussionResource::collection(
             Club::with(
                 'club_member',
                 'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -127,7 +127,7 @@ class DiscussionController extends Controller
             $like->user_id       = $uid;
             $like->save();
             
-            $discussions = DiscussionClubResource::collection(
+            $discussions = ClubDiscussionResource::collection(
                 Club::with(
                     'club_member',
                     'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -137,7 +137,7 @@ class DiscussionController extends Controller
         }else {
             $discussion->delete();
             
-            $discussions = DiscussionClubResource::collection(
+            $discussions = ClubDiscussionResource::collection(
                 Club::with(
                     'club_member',
                     'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -159,7 +159,7 @@ class DiscussionController extends Controller
         $comment->image_comment  = 'test';
         $comment->save();
         
-        $discussions = DiscussionClubResource::collection(
+        $discussions = ClubDiscussionResource::collection(
             Club::with(
                 'club_member',
                 'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -185,7 +185,7 @@ class DiscussionController extends Controller
             $comment->image_comment  = 'test';
             $comment->save();
             
-            $discussions = DiscussionClubResource::collection(
+            $discussions = ClubDiscussionResource::collection(
                 Club::with(
                     'club_member',
                     'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -205,7 +205,7 @@ class DiscussionController extends Controller
         if($comment->count()) {
             $comment -> delete();
             
-            $discussions = DiscussionClubResource::collection(
+            $discussions = ClubDiscussionResource::collection(
                 Club::with(
                     'club_member',
                     'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -228,7 +228,7 @@ class DiscussionController extends Controller
             $like->user_id               = $uid;
             $like->save();
             
-            $discussions = DiscussionClubResource::collection(
+            $discussions = ClubDiscussionResource::collection(
                 Club::with(
                     'club_member',
                     'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
@@ -238,7 +238,7 @@ class DiscussionController extends Controller
         }else {
             $discussion->delete();
             
-            $discussions = DiscussionClubResource::collection(
+            $discussions = ClubDiscussionResource::collection(
                 Club::with(
                     'club_member',
                     'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
