@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegisterFormRequest;
+use App\Http\Requests\Auth\RegisterFormRequest;
+use App\Http\Requests\Auth\LoginFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -32,7 +33,7 @@ class AuthController extends Controller
         return [ $user, $mypage ];
     }
     
-    public function authenticate(Request $request)
+    public function authenticate(LoginFormRequest $request)
     {
         $credentials = $request -> only('email', 'password');
         
