@@ -3,28 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Club;
+use App\Http\Requests\Club\Store as StoreRequest;
+use App\Http\Requests\Club\Update as UpdateRequest;
+
+use App\Http\Resources\SelectClub as SelectClubResource;
+use App\Http\Resources\SelectUser as SelectUserResource;
+use App\Http\Resources\Club as ClubResource;
+
 use App\Models\ClubMember;
+use App\Models\Club;
 use App\Models\Topic;
 use App\User;
-
-use App\Http\Resources\Club\Club as ClubResource;
-use App\Http\Resources\Club\SelectClub as SelectClubResource;
-use App\Http\Resources\User\SelectUser as SelectUserResource;
 use DB;
 
 class ClubController extends Controller
 {
-    public function selectclub() 
+    public function selectClub() 
     {
         // DB::connection()->enableQueryLog();
-
+        
         $uid = auth()->user()->id;
         $user = SelectClubResource::collection(
                     User::with(
                     'club_member'
                 )->where("id",$uid)->get()
             );
+            
         return $user;
         
         // $topics = Topic::all();  
@@ -98,8 +102,8 @@ class ClubController extends Controller
         );
         return $user;
     }
-    public function store(Request $request) 
-    {
+    public function store(StoreRequest $request) 
+    {   
         $uid = auth()->user()->id;
         $club = new Club;
         $club->user_id         = $uid;
@@ -122,7 +126,6 @@ class ClubController extends Controller
         return $user;
     }
     
-    
     public function show($id) {
         $club = ClubResource::collection(
                     Club::with(
@@ -131,10 +134,9 @@ class ClubController extends Controller
                 );
         return $club;
     }
-    public function update(Request $request, $id) 
+    public function update(UpdateRequest $request, $id) 
     {
         $club = Club::find($id);
-        $club->policy     = $request->policy;
         $club->rule_one   = $request->rule_one;
         $club->rule_two   = $request->rule_two;
         $club->rule_three = $request->rule_three;
@@ -142,14 +144,14 @@ class ClubController extends Controller
         return response()->json($club);
         // return new ClubResource($club);
     }
-    public function updaterole(Request $request, $id) 
-    {
-        \Log::info($request);
-        $uid = auth()->user()->id;
-        $role = ClubMember::where("user_id",$uid)->where("club_id",$id)->select("id")->first();
-        // $role = ClubMember::where("user_id",$uid)->where("club_id",$id)->select("id")->first();
-        $role->role = $request->role;
-        $role->save();    
-        return response()->json($role);
-    }
+    // public function updateRole(Request $request, $id) 
+    // {
+    //     \Log::info($request);
+    //     $uid = auth()->user()->id;
+    //     $role = ClubMember::where("user_id",$uid)->where("club_id",$id)->select("id")->first();
+    //     // $role = ClubMember::where("user_id",$uid)->where("club_id",$id)->select("id")->first();
+    //     $role->role = $request->role;
+    //     $role->save();    
+    //     return response()->json($role);
+    // }
 }

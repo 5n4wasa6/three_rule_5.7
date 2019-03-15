@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\Discussion\Club as ClubDiscussionResource;
+use App\Http\Requests\Discussion\Store as StoreRequest;
+use App\Http\Requests\Discussion\Update as UpdateRequest;
+use App\Http\Requests\Discussion\StoreComment as StoreCommentRequest;
+use App\Http\Requests\Discussion\UpdateComment as UpdateCommentRequest;
 
 use App\Models\Club;
 use App\Models\Discussion;
@@ -11,7 +15,6 @@ use App\Models\DiscussionComment;
 use App\Models\DiscussionCommentCount;
 use App\Models\DiscussionCount;
 use App\User;
-
 
 class DiscussionController extends Controller
 {
@@ -29,7 +32,7 @@ class DiscussionController extends Controller
     {
         //
     }
-    public function store(Request $request, $id)
+    public function store(StoreRequest $request, $id)
     {
         // $exploded = explode(',', $request -> image);
         // $decoded= base64_decode($exploded[1]);
@@ -77,10 +80,9 @@ class DiscussionController extends Controller
     {
         return Discussion::find($id);
     }
-    public function update(Request $request, $club_id, $discussion_id)
+    public function update(UpdateRequest $request, $club_id, $discussion_id)
     {
         $uid = auth()->user()->id;
-        
         $discussion = Discussion::find($discussion_id);
         $discussion->user_id = $uid;
         $discussion->club_id = $club_id;
@@ -147,7 +149,7 @@ class DiscussionController extends Controller
         }
     }
     
-    public function comment(Request $request, $club_id, $discussion_id)
+    public function storeComment(StoreCommentRequest $request, $club_id, $discussion_id)
     {
         $uid = auth()->user()->id;
         $comment = new DiscussionComment;
@@ -167,8 +169,7 @@ class DiscussionController extends Controller
             );
         return $discussions;
     }
-    
-    public function commentUpdate(Request $request, $club_id, $discussion_id, $discussion_comment_id) {
+    public function updateComment(UpdateCommentRequest $request, $club_id, $discussion_id, $discussion_comment_id) {
         
         $uid = auth()->user()->id;
         $comment = DiscussionComment::where('id', $discussion_comment_id)->first();
@@ -196,8 +197,7 @@ class DiscussionController extends Controller
             return response() -> json('error');
         }
     }
-    
-    public function commentDestroy(Request $request, $club_id, $discussion_comment_id) {
+    public function destroyComment(Request $request, $club_id, $discussion_comment_id) {
         
         $uid = auth()->user()->id;
         $comment = DiscussionComment::where('id', $discussion_comment_id)->first();
@@ -217,34 +217,34 @@ class DiscussionController extends Controller
         }
     }
     
-    public function commentlike(Request $request, $club_id, $discussion_comment_id)
-    {
-        $uid = auth()->user()->id;
-        $discussion = DiscussionCommentCount::where('user_id',$uid)->where('discussion_comment_id', $discussion_comment_id)->first();
+    // public function likeComment(Request $request, $club_id, $discussion_comment_id)
+    // {
+    //     $uid = auth()->user()->id;
+    //     $discussion = DiscussionCommentCount::where('user_id',$uid)->where('discussion_comment_id', $discussion_comment_id)->first();
         
-        if(!$discussion) {
-            $like = new DiscussionCommentCount;
-            $like->discussion_comment_id = $discussion_comment_id;
-            $like->user_id               = $uid;
-            $like->save();
+    //     if(!$discussion) {
+    //         $like = new DiscussionCommentCount;
+    //         $like->discussion_comment_id = $discussion_comment_id;
+    //         $like->user_id               = $uid;
+    //         $like->save();
             
-            $discussions = ClubDiscussionResource::collection(
-                Club::with(
-                    'club_member',
-                    'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
-                    )->where("id",$club_id)->get()
-                );
-            return $discussions;
-        }else {
-            $discussion->delete();
+    //         $discussions = ClubDiscussionResource::collection(
+    //             Club::with(
+    //                 'club_member',
+    //                 'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
+    //                 )->where("id",$club_id)->get()
+    //             );
+    //         return $discussions;
+    //     }else {
+    //         $discussion->delete();
             
-            $discussions = ClubDiscussionResource::collection(
-                Club::with(
-                    'club_member',
-                    'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
-                    )->where("id",$club_id)->get()
-                );
-            return $discussions;
-        }
-    }
+    //         $discussions = ClubDiscussionResource::collection(
+    //             Club::with(
+    //                 'club_member',
+    //                 'discussion','discussion.discussion_count','discussion.discussion_comment','discussion_comment.discussion_comment_count'
+    //                 )->where("id",$club_id)->get()
+    //             );
+    //         return $discussions;
+    //     }
+    // }
 }
