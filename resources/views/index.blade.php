@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <!-- Styles -->
-  <link href="{{ mix('css/reset.css') }}" rel="stylesheet">
-  <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -27,6 +27,6 @@
   <script>
     window.Laravel = { csrfToken: '{{ csrf_token() }}' }
   </script>
-  <script src="{{ mix('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

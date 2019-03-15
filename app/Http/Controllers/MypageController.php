@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\User\User as UserResource;
 use Illuminate\Http\Request;
+use App\Http\Requests\Menu\Update as UpdateRequest;
+use App\Http\Requests\Menu\Icon as IconRequest;
+use App\Http\Requests\Menu\StoreMyJournal as StoreMyJournalRequest;
+use App\Http\Requests\Menu\UpdateMyJournal as UpdateMyJournalRequest;
 
+use App\Http\Resources\User\User as UserResource;
 // use App\Models\Fan;
 use App\Models\MyJournal;
 use App\Models\Mypage;
@@ -22,7 +26,7 @@ class MypageController extends Controller
             );
         return $mypage;
     }
-    public function update(Request $request, $club_id, $mypage_id) {
+    public function update(UpdateRequest $request, $club_id, $mypage_id) {
         
         // $user = User::find($id);
         // $user->name = $request->name;
@@ -37,7 +41,7 @@ class MypageController extends Controller
         
         return response()->json($mypage);
     }
-    public function icon(Request $request, $club_id, $mypage_id) {
+    public function icon(IconRequest $request, $club_id, $mypage_id) {
         
         $exploded = explode(',',$request->icon);
         $decoded = base64_decode($exploded[1]);
@@ -59,7 +63,7 @@ class MypageController extends Controller
         return response()->json($icon);
     }
     
-    public function store(Request $request) {
+    public function store(StoreMyJournalRequest $request) {
         $uid = auth()->user()->id;
         $myjournal = new MyJournal;
         // $myjournal->user_id      = $uid;
@@ -75,7 +79,7 @@ class MypageController extends Controller
         return response()->json($myjournal);
     }
     
-    public function updateMyJournal(Request $request, $club_id, $user_id) {
+    public function updateMyJournal(UpdateMyJournalRequest $request, $club_id, $user_id) {
         $myjournal = MyJournal::find($user_id);
         $myjournal->user_id      = auth()->user()->id;
         $myjournal->activity_at  = $request->activity_at;

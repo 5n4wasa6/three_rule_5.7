@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Resources\Calendar\Calendar as CalendarResource;
+use App\Http\Requests\Calendar\Store as StoreRequest;
+use App\Http\Requests\Calendar\Update as UpdateRequest;
 
 use Illuminate\Http\Request;
 use App\Models\Calendar;
@@ -17,7 +20,7 @@ class CalendarController extends Controller
                 );
         return $calendars;
     }
-    public function store(Request $request, $id)
+    public function store(StoreRequest $request, $id)
     {
         $uid = auth()->user()->id;
         
@@ -49,7 +52,7 @@ class CalendarController extends Controller
                 );
         return $calendars;
     }
-    public function update(Request $request, $club_id, $calendar_id)
+    public function update(UpdateRequest $request, $club_id, $calendar_id)
     {
         $uid = auth()->user()->id;
         $calendar = Calendar::find($calendar_id);
@@ -65,14 +68,20 @@ class CalendarController extends Controller
         $calendar->description = $request->description;
         $calendar->save();
         
-        return $calendar;
+        $calendars = CalendarClubResource::collection(
+            Calendar::where("club_id",$club_id)->get()
+        );
+        return $calendars;
     }
     public function destroy($club_id, $calendar_id)
     {
         $calendar = Calendar::find($calendar_id);
         if($calendar -> count()) {
             $calendar -> delete();
-            return response() -> json('success');
+            $calendars = CalendarClubResource::collection(
+                Calendar::where("club_id",$club_id)->get()
+            );
+            return $calendars;
         }else {
             return response() -> json('error');
         }

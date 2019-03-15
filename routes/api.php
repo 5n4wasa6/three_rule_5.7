@@ -22,18 +22,17 @@ Route::group(['middleware' => 'api'], function() {
     Route::get("logout", 'AuthController@logout')->middleware('jwt.refresh');
     
     // Route::post('follow/{follow_user_id}',  'AuthController@store');
-    Route::get('selectclub',  'ClubController@selectclub');
+    Route::get('selectclub',  'ClubController@selectClub');
     Route::post('club/create', 'ClubController@store');
     Route::put('approval', 'ClubController@approval');
-    Route::post('approval', 'ClubController@destroy');
+    Route::post('approval', 'ClubController@destroypproval');
     
     Route::get('getUser', 'ClubController@user');
     Route::post('club/{club_id}/invite', 'ClubController@invite');
     
     Route::get('club/{club_id}', 'ClubController@show');
     Route::put('club/{club_id}/rules', 'ClubController@update');
-    // Route::patch('club/{club_id}/users/{user_id}/role', 'ClubController@updaterole');
-    Route::patch('club/{club_id}/role', 'ClubController@updaterole');
+    // Route::patch('club/{club_id}/role', 'ClubController@updateRole');
     
     Route::get('club/{club_id}/mypage/{user_id}',  'MypageController@show');
     Route::put('club/{club_id}/mypage/{mypage_id}',  'MypageController@update');
@@ -49,10 +48,10 @@ Route::group(['middleware' => 'api'], function() {
     
     // Route::post('discussion/like', 'DiscussionController@like');
     Route::post('club/{club_id}/discussion/{discussion_id}/like', 'DiscussionController@like');
-    Route::post('club/{club_id}/discussion/{discussion_id}/comment', 'DiscussionController@comment');
-    Route::put('club/{club_id}/discussion/{discussiont_id}/commentupdate/{discussion_comment_id}', 'DiscussionController@commentUpdate');
-    Route::delete('club/{club_id}/discussion/{discussion_id}/comment/{discussion_comment_id}', 'DiscussionController@commentDestroy');
-    // Route::post('club/{club_id}/discussion/{discussion_comment_id}/commentlike', 'DiscussionController@commentlike');
+    Route::post('club/{club_id}/discussion/{discussion_id}/comment', 'DiscussionController@storeComment');
+    Route::put('club/{club_id}/discussion/{discussiont_id}/commentupdate/{discussion_comment_id}', 'DiscussionController@updateComment');
+    Route::delete('club/{club_id}/discussion/{discussion_id}/comment/{discussion_comment_id}', 'DiscussionController@destroyComment');
+    // Route::post('club/{club_id}/discussion/{discussion_comment_id}/commentlike', 'DiscussionController@likeComment');
     
     // Route::get('club/{club_id}/journal', 'JournalController@index');
     // Route::post('club/{club_id}/journal', 'JournalController@store');
@@ -72,7 +71,7 @@ Route::group(['middleware' => 'api'], function() {
     
     Route::get('club/{club_id}/menu', 'MenuController@index');
     Route::post('club/{club_id}/menu', 'MenuController@store');
-    Route::put('club/{club_id}/menu', 'MenuController@updatetag');
+    Route::put('club/{club_id}/menu', 'MenuController@updateTag');
     Route::put('club/{club_id}/menu/{menu_id}', 'MenuController@update');
     Route::delete('club/{club_id}/menu/{menu_id}', 'MenuController@destroy');
 });

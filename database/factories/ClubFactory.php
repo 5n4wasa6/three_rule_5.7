@@ -16,13 +16,13 @@ $factory->define(App\Models\Club::class, function (Faker $faker) {
         'club_calling'   => "部",
         'image'          => $fileRealPath,
         // 'policy'         => $faker->realText(10),
-        // 'rule_one'       => $faker->realText(10),
-        // 'rule_two'       => $faker->realText(10),
-        // 'rule_three'     => $faker->realText(10),
-        // 'tag_one'        => $faker->realText(10),
-        // 'tag_two'        => $faker->realText(10),
-        // 'tag_three'      => $faker->realText(10),
-        // 'tag_four'       => $faker->realText(10),
-        // 'tag_five'       => $faker->realText(10)
+        'rule_one'       => $faker->realText(10),
+        'rule_two'       => $faker->realText(10),
+        'rule_three'     => $faker->realText(10),
+        'tag_one'        => $faker->realText(10),
+        'tag_two'        => $faker->realText(10),
+        'tag_three'      => $faker->realText(10),
+        'tag_four'       => $faker->realText(10),
+        'tag_five'       => $faker->realText(10)
     ];
 });
