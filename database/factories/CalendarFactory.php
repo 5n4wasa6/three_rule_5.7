@@ -10,9 +10,9 @@ $factory->define(App\Models\Calendar::class, function (Faker $faker) {
         'end'         => $faker->date($format='y-m-d', $min='2019-2-1',$max='now'),
         'title'       => $faker->realText(10),
         'tag'         => $faker->numberBetween(1, 4),
-        'schedule'    => "練習",
-        'start_time'  => "10:00",
-        'end_time'    => "11:00",
+        'schedule'    => $faker->randomElement(['練習', '休み', '試合', '未定']),
+        'start_time'  => '10:00',
+        'end_time'    => '11:00',
         'url'         => $faker->url,
         'description' => $faker->realText(20)
     ];

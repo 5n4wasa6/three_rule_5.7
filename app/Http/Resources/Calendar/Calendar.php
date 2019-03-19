@@ -20,7 +20,7 @@ class Calendar extends JsonResource
             // "club_name"      => $this->club_name,   
             // "club_calling"   => $this->club_calling,
             // "calendar" => CalendarResource::collection($this->calendar)
-            "start"       => $this->start,
+            "day_start"   => $this->start,
             "end"         => $this->end,
             "title"       => $this->title,
             "tag"         => $this->tag,

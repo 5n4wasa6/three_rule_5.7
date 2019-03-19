@@ -11,6 +11,6 @@ class CalendarsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Calendar::class, 50)->create();
+        factory(App\Models\Calendar::class, 50)->create('ja_JP');
     }
 }
