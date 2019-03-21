@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+// use App\Mypage;
+// use App\Policies\Mypage;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -14,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        // App\Models\Mypage::class => App\Policies\Mypage::class,
     ];
 
     /**
@@ -25,6 +28,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('mypage', function ($user, $user_id) {
+            return $user->id == $user_id;
+        });
     }
 }
