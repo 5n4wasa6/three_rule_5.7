@@ -5,7 +5,7 @@ namespace App\Http\Requests\Discussion;
 use App\Http\Requests\ValidationErrorResponseCustomizer;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCommet extends FormRequest
+class UpdateComment extends FormRequest
 {
     use ValidationErrorResponseCustomizer;
     /**
@@ -26,7 +26,7 @@ class UpdateCommet extends FormRequest
     public function rules()
     {
         return [
-            'body'  => 'required|max:256',
+            'comment'  => 'required|max:256',
             // 'image' => ''
         ];
     }
