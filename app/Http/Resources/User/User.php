@@ -18,7 +18,7 @@ class User extends JsonResource
     public function toArray($request)
     {
         return [
-            // "id"         => $this->id,
+            "id"         => $this->id,
             "name"       => $this->name,
             "user_type"  => $this->user_type,
             "mypage"     => MypageResource::collection($this->mypage),
