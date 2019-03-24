@@ -74,7 +74,6 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }
-    
     // public function store($id) 
     // {
     //     $follow = new Fan;

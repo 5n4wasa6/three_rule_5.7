@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class ClubMember extends Model
 {
     public function user() {
-        return $this->belongsTo('User::class');
+        return $this->belongsTo('App\User');
     }
     public function club() {
-        return $this->belongsTo('Club::class');
+        return $this->belongsTo('App\Models\Club');
     }
 }

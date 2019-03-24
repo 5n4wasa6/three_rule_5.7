@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Club\Store as StoreRequest;
 use App\Http\Requests\Club\Update as UpdateRequest;
 
-use App\Http\Resources\SelectClub as SelectClubResource;
-use App\Http\Resources\SelectUser as SelectUserResource;
-use App\Http\Resources\Club as ClubResource;
+use App\Http\Resources\Club\SelectClub as SelectClubResource;
+use App\Http\Resources\Club\SelectUser as SelectUserResource;
+use App\Http\Resources\Club\Club as ClubResource;
 
 use App\Models\ClubMember;
 use App\Models\Club;
@@ -21,7 +21,6 @@ class ClubController extends Controller
     public function selectClub() 
     {
         // DB::connection()->enableQueryLog();
-        
         $uid = auth()->user()->id;
         $user = SelectClubResource::collection(
                     User::with(

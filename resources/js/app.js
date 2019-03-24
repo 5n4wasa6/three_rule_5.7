@@ -8,23 +8,23 @@
 require('./bootstrap');
 
 import Vue from 'vue';
-import App from './App';
-// import axios  from 'axios'
-// import VueAxios  from 'vue-axios'
-// import VueProgressiveImage from 'vue-progressive-image';
-// import { sync } from 'vuex-router-sync';
-// import store from './store/index';
-// import router from './router/index';
-// import fullCalendar from 'vue-fullcalendar';
+import App from './App.vue';
+import axios  from 'axios'
+import VueAxios  from 'vue-axios'
+import VueProgressiveImage from 'vue-progressive-image';
+import { sync } from 'vuex-router-sync';
+import store from './store/index';
+import router from './router/index';
+import fullCalendar from 'vue-fullcalendar';
 
-// Vue.component('full-calendar', fullCalendar)
+Vue.component('full-calendar', fullCalendar)
 
-// Vue.use(VueAxios, axios); 
-// sync(store, router);
+Vue.use(VueAxios, axios); 
+sync(store, router);
 
-// Vue.use(VueProgressiveImage, {
-//   blur: 30
-// })
+Vue.use(VueProgressiveImage, {
+  blur: 30
+})
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,7 +33,7 @@ import App from './App';
  */
 
 const app = new Vue({
-//   router,
-//   store,
+  router,
+  store,
   render: h => h(App)
 }).$mount('#app');

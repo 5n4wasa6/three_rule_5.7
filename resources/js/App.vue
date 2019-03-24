@@ -3,23 +3,21 @@
         <router-view></router-view>
     </div>
 </template>
-<script>
-// import TheHeader from './components/TheHeader.vue';
-// import TheFooter from './components/TheFooter.vue';
-// import http from './services/http'
 
-// import RadiusMenu from './components/RadiusMenu.vue';
+<script>
+import TheHeader from './components/TheHeader.vue';
+import TheFooter from './components/TheFooter.vue';
+import http from './services/http'
 // import { mapActions } from 'vuex';
-// import http from './services/http';
 
 export default {
     components: {
-        // TheHeader,
-        // TheFooter,
+        TheHeader,
+        TheFooter,
     },
-    // created() {
-    //     http.init()
-    // }
+    created() {
+        http.init()
+    }
 }
 </script>
 

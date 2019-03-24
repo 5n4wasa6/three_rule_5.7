@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Discussion extends Model
 {
     public function user() {
-        return $this->belongsTo('User::class');
+        return $this->belongsTo('App\User');
     }
     public function club() {
-        return $this->belongsTo('Club::class');
+        return $this->belongsTo('App\Models\Club');
     }
     
 
     public function discussion_count() {
-        return $this->hasMany('DiscussionCount::class');
+        return $this->hasMany('App\Models\DiscussionCount');
     }
     public function discussion_comment() {
-        return $this->hasMany('DiscussionComment::class');
+        return $this->hasMany('App\Models\DiscussionComment');
     }
 }
