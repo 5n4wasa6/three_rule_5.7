@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class DiscussionComment extends Model
 {
     public function user() {
-        return $this->belongsTo('User::class');
+        return $this->belongsTo('App\User');
     }
     public function club() {
-        return $this->belongsTo('Club::class');
+        return $this->belongsTo('App\Models\Club');
     }
     public function discussion() {
-        return $this->belongsTo('Discussion::class');
+        return $this->belongsTo('App\Models\Discussion');
     }
     
     public function discussion_comment_count() {
-        return $this->hasMany('DiscussionCommentCount::class');
+        return $this->hasMany('App\Models\DiscussionCommentCount');
     }
 }

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class MyJournalCommentCount extends Model
 {
     public function user() {
-        return $this->belongsTo('User::class');
+        return $this->belongsTo('App\User');
     }
     public function my_journal_comment() {
-        return $this->belongsTo('MyJournalComment::class');
+        return $this->belongsTo('App\Models\MyJournalComment');
     }
 }

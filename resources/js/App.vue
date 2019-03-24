@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style scoped>
-/* @import "../node_modules/bulma/bulma.sass"; */
 body {
     font-family: "Rubik", "Helvetica", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "游ゴシック", "Yu Gothic", YuGothic, "a-otf-midashi-go-mb31-pr6n", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
     color: #484848;

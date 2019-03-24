@@ -23,8 +23,6 @@
                             </select>
                         </div>
                     </div>
-                    
-                    
                     <div class="field">
                         <label class="label">メールアドレス</label>
                         <div class="control has-icons-left has-icons-right">
@@ -75,20 +73,8 @@ export default {
         async handleLogin() {
             await this.login({ email: this.user.email, password: this.user.password })
             this.$router.push('/selectclub')
-            
-            // console.log('loginnnn')
-            // const params = {
-            //     email:     this.user.email,
-            //     password:  this.user.password
-            // };
-            // axios.post('/login', params)
-            //     .then(response => {
-            //         swal("Success!", "Your product has been opsated!", "success")
-            //         this.$router.push('/selectclub/3')
-            //     })
         },
         async handleRegister() {
-            console.log('btn on')
             const params = {
                 name:      this.user.name,
                 user_type: this.user.type,
@@ -99,18 +85,7 @@ export default {
                 .then(response => {
                    this.handleLogin() 
                 })
-        },
-        // async handleRegister() {
-        //     const params = {
-        //         name:      this.user.name,
-        //         user_type: this.user.type,
-        //         email:     this.user.email,
-        //         password:  this.user.password
-        //     };
-        //     console.log('btn on')
-        //     await this.register({ params })
-        //     this.handleLogin()
-        // }
+        }
     }
 }
 </script>

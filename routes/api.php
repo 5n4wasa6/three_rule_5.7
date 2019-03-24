@@ -25,20 +25,24 @@ Route::group(['middleware' => 'api'], function() {
     Route::get('selectclub',  'ClubController@selectClub');
     Route::post('club/create', 'ClubController@store');
     Route::put('approval', 'ClubController@approval');
-    Route::post('approval', 'ClubController@destroypproval');
+    Route::post('approval', 'ClubController@destroy');
     
     Route::get('getUser', 'ClubController@user');
     Route::post('club/{club_id}/invite', 'ClubController@invite');
     
-    Route::get('club/{club_id}', 'ClubController@show');
+    Route::get('club/{club_id}/user/{user_id}', 'ClubController@show');
     Route::put('club/{club_id}/rules', 'ClubController@update');
-    // Route::patch('club/{club_id}/role', 'ClubController@updateRole');
+    Route::put('club/{club_id}/user/{user_id}/icon', 'ClubController@iconStore');
+    // Route::patch('club/{club_id}/users/{user_id}/role', 'ClubController@updaterole');
+    // Route::patch('club/{club_id}/role', 'ClubController@updaterole');
+    
+    
     
     Route::get('club/{club_id}/mypage/{user_id}',  'MypageController@show');
-    Route::put('club/{club_id}/mypage/{mypage_id}',  'MypageController@update');
+    Route::put('club/{club_id}/mypage/{user_id}',  'MypageController@update');   // ->middleware('can:update-mypage, test');
     Route::put('club/{club_id}/mypage/{mypage_id}/icon',  'MypageController@icon');
     Route::post('club/{club_id}/mypage/{user_id}/myjournal',  'MypageController@store');
-    // Route::put('club/{club_id}/mypage/{user_id}/myjournal/{myjournal_id}',  'MypageController@updateMyJournal');
+    Route::put('club/{club_id}/mypage/{user_id}/myjournal/{myjournal_id}',  'MypageController@updateMyJournal');
     
     // Route::resource('/discussion', 'DiscussionController');
     Route::get('club/{club_id}/discussion', 'DiscussionController@index');
@@ -46,11 +50,12 @@ Route::group(['middleware' => 'api'], function() {
     Route::put('club/{club_id}/discussion/{discussion_id}', 'DiscussionController@update');
     Route::delete('club/{club_id}/discussion/{discussion_id}', 'DiscussionController@destroy');
     
+    
     // Route::post('discussion/like', 'DiscussionController@like');
     Route::post('club/{club_id}/discussion/{discussion_id}/like', 'DiscussionController@like');
     Route::post('club/{club_id}/discussion/{discussion_id}/comment', 'DiscussionController@storeComment');
     Route::put('club/{club_id}/discussion/{discussiont_id}/commentupdate/{discussion_comment_id}', 'DiscussionController@updateComment');
-    Route::delete('club/{club_id}/discussion/{discussion_id}/comment/{discussion_comment_id}', 'DiscussionController@destroyComment');
+    Route::delete('club/{club_id}/user/{user_id}/onediscussion/{discussion_comment_id}', 'DiscussionController@destroyComment');
     // Route::post('club/{club_id}/discussion/{discussion_comment_id}/commentlike', 'DiscussionController@likeComment');
     
     // Route::get('club/{club_id}/journal', 'JournalController@index');

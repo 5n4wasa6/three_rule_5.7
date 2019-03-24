@@ -2,11 +2,12 @@
 
 namespace App;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -38,95 +39,95 @@ class User extends Authenticatable
     ];
 
     public function user_type() {
-        return $this->belongsTo('App\UserType');
+        return $this->belongsTo('App\Models\UserType');
       }
       public function club(){
-        return $this->belongsTo('App\Club');
+        return $this->belongsTo('App\Models\Club');
       }
       
       
       public function fan(){
-        return $this->hasMany('App\Fan');
+        return $this->hasMany('App\Models\Fan');
       }
       public function club_fan(){
-        return $this->hasMany('App\ClubFan');
+        return $this->hasMany('App\Models\ClubFan');
       }
       public function club_member(){
-        return $this->hasMany('App\ClubMember');
+        return $this->hasMany('App\Models\ClubMember');
       }
       public function mypage(){
-        return $this->hasMany('App\Mypage');
+        return $this->hasMany('App\Models\Mypage');
       }
       public function strategy(){
-        return $this->hasMany('App\Strategy');
+        return $this->hasMany('App\Models\Strategy');
       }
       
       public function discussion(){
-        return $this->hasMany('App\Discussion');
+        return $this->hasMany('App\Models\Discussion');
       }
       public function discussion_count(){
-        return $this->hasMany('App\DiscussionCount');
+        return $this->hasMany('App\Models\DiscussionCount');
       }
       public function discussion_comments(){
-        return $this->hasMany('App\DiscussionComment');
+        return $this->hasMany('App\Models\DiscussionComment');
       }
       public function discussion_comment_count(){
-        return $this->hasMany('App\DiscussionCommentCount');
+        return $this->hasMany('App\Models\DiscussionCommentCount');
       }
       
       public function menu(){
-        return $this->hasMany('App\Menu');
+        return $this->hasMany('App\Models\Menu');
       }
       public function menu_count(){
-        return $this->hasMany('App\MenuCount');
+        return $this->hasMany('App\Models\MenuCount');
       }
       public function menu_comments(){
-        return $this->hasMany('App\MenuComment');
+        return $this->hasMany('App\Models\MenuComment');
       }
       public function menu_comment_counts(){
-        return $this->hasMany('App\MenuCommentCount');
+        return $this->hasMany('App\Models\MenuCommentCount');
       }
       
       public function calendar(){
-        return $this->hasMany('App\Calendar');
+        return $this->hasMany('App\Models\Calendar');
       }
       public function calendar_count(){
-        return $this->hasMany('App\CalendarCount');
+        return $this->hasMany('App\Models\CalendarCount');
       }
       public function calendar_comments(){
-        return $this->hasMany('App\CalendarComment');
+        return $this->hasMany('App\Models\CalendarComment');
       }
       public function calendar_comment_counts(){
-        return $this->hasMany('App\CalendarCommentCount');
+        return $this->hasMany('App\Models\CalendarCommentCount');
       }
       
       public function journal(){
-        return $this->hasMany('App\Journal');
+        return $this->hasMany('App\Models\Journal');
       }
       public function journal_count(){
-        return $this->hasMany('App\JournalCount');
+        return $this->hasMany('App\Models\JournalCount');
       }
       public function journal_comments(){
-        return $this->hasMany('App\JournalComment');
+        return $this->hasMany('App\Models\JournalComment');
       }
       public function journal_comment_counts(){
-        return $this->hasMany('App\JournalCommentCount');
+        return $this->hasMany('App\Models\JournalCommentCount');
       }
       
       public function my_journal(){
-        return $this->hasMany('App\MyJournal');
+        return $this->hasMany('App\Models\MyJournal');
       }
       public function my_journal_count(){
-        return $this->hasMany('App\MyJournalCount');
+        return $this->hasMany('App\Models\MyJournalCount');
       }
       public function my_journal_comment(){
-        return $this->hasMany('App\MyJournalComment');
+        return $this->hasMany('App\Models\MyJournalComment');
       }
       public function my_journal_comment_count(){
-        return $this->hasMany('App\MyJournalCommentCount');
+        return $this->hasMany('App\Models\MyJournalCommentCount');
       }
       public function topic(){
-        return $this->hasMany('App\Topic');
+        return $this->hasMany('App\Models\Topic');
       }
       
       

@@ -197,7 +197,7 @@ class DiscussionController extends Controller
             return response() -> json('error');
         }
     }
-    public function destroyComment(Request $request, $club_id, $discussion_comment_id) {
+    public function destroyComment(Request $request, $club_id, $user_id, $discussion_comment_id) {
         
         $uid = auth()->user()->id;
         $comment = DiscussionComment::where('id', $discussion_comment_id)->first();

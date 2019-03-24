@@ -67,7 +67,6 @@
                         ログインする
                     </button>
                 </div>
-
                 <!--<div class="reset-password">-->
                 <!--    <a>パスワードを忘れた方</a>    -->
                 <!--</div>-->

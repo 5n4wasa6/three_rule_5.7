@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class MyJournal extends Model
 {
     public function user() {
-        return $this->belongsTo('User::class');
+        return $this->belongsTo('App\User');
     }
       
     public function my_journal_count() {
-        return $this->hasMany('MyJournalCount::class');
+        return $this->hasMany('App\Models\MyJournalCount');
     }
     public function my_journal_comment() {
-        return $this->hasMany('MyJournalComment::class');
+        return $this->hasMany('App\Models\MyJournalComment');
     }
 }
