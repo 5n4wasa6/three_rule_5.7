@@ -17,6 +17,7 @@ class CreateDiscussionCountsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('discussion_id')->unsigned();
+            $table->unique(['user_id','discussion_id'],'UNIQUE_IDX_FAVORITES');
             $table->timestamps();
             
             $table->foreign('discussion_id')

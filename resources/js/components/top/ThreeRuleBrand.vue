@@ -1,7 +1,7 @@
 <template>
     <div class="brand-container">
         <div class="brand">
-            <router-link to="/">3rules</router-link>
+            <router-link to="/">3rule</router-link>
         </div>
     </div>
 </template>
@@ -16,7 +16,9 @@ export default {
 }
 .brand {
     position: fixed;
-    background-color: black;
+    background-color: rgba(5, 40, 247, 95);
+    border: none;
+    font-weight: bold;
     width: 110px;
     height: 40px;
     top: 16px;

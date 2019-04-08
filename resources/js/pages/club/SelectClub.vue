@@ -70,7 +70,7 @@ export default {
             }
             axios.put('/approval', params)
                 .then(response => {
-                    this.$router.push('/club/'+ club_id)
+                    this.$router.push('/club/'+ club_id + '/user/'+ user_id)
                 })
         },
         del(user_id, club_id) {
