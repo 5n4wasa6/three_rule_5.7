@@ -172,7 +172,7 @@ export default {
 </script>
 
 <style scoped>
-/* .sticky-header {
+.sticky-header {
     width: 100%;
     height: 50px;
     line-height: 16px;
@@ -194,7 +194,7 @@ export default {
     padding:0;
     font-weight: bold;
     font-size: 16px;
-} */
+}
 .menu-container {
     padding:  64px 8px;
     width: 100%;
