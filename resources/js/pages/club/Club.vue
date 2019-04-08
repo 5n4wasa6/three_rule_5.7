@@ -1,15 +1,14 @@
 <template>
     <div>
-        <figure class="image">
+        <figure class="main-image">
             <img
-                src="http://placehold.jp/1280x320.png"
-                placeholder="http://placehold.jp/1280x320.png"
+                src="https://d1f5hsy4d47upe.cloudfront.net/b1/b1a383d0ecbbee36d48621204f4bd1ae_t.jpeg"
                 :blur="30"
                 @click="imageModalToggle"
             />
             <image-modal v-if="imageModalShow" @close="imageModalToggle" :submit="uploadImage"/>
         </figure>
-        
+    
         <div class="club-heading">
             <h1 class="club-name">
                 {{ clubData[0].school_name }}{{ clubData[0].school_calling }}
@@ -190,6 +189,20 @@ export default {
 </script>
 
 <style scoped>
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.main-iamge {
+    position: relative;
+    display: flex;
+}
+.main-image img {
+    width:  100%;
+    height: 250px;
+    margin-left: 0;
+}
 
 .club-heading {
     padding: 8px 8px 16px;

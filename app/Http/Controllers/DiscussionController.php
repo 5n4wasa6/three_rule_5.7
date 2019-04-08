@@ -120,7 +120,7 @@ class DiscussionController extends Controller
     public function like(Request $request, $club_id, $discussion_id)
     {
         $uid = auth()->user()->id;
-        $discussion = DiscussionCount::where('user_id',3)->where('discussion_id', $discussion_id)->first();
+        $discussion = DiscussionCount::where('user_id',$uid)->where('discussion_id', $discussion_id)->first();
         // $discussion = DiscussionCount::where('user_id', $request->user_id)->where('discussion_id', $request->discussion_id)->first();
         
         if(!$discussion) {

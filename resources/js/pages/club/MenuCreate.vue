@@ -78,7 +78,7 @@ export default {
                 description: this.description
             };
             
-            axios.post('club/'+ this.$route.params.id +'/menu', params)
+            axios.post('club/'+ this.$route.params.id+'/user/'+ this.$route.params.user_id +'/menu', params)
                 .then(response => {
                     swal("Created!", "Your product has been done!", "success")
                     this.$router.push('/club/'+ this.$route.params.id +'/menu')

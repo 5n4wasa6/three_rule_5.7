@@ -38,9 +38,9 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
-    public function user_type() {
-        return $this->belongsTo('App\Models\UserType');
-      }
+    // public function user_type() {
+    //     return $this->belongsTo('App\Models\UserType');
+    //   }
       public function club(){
         return $this->belongsTo('App\Models\Club');
       }
@@ -49,18 +49,18 @@ class User extends Authenticatable implements JWTSubject
       public function fan(){
         return $this->hasMany('App\Models\Fan');
       }
-      public function club_fan(){
-        return $this->hasMany('App\Models\ClubFan');
-      }
+      // public function club_fan(){
+      //   return $this->hasMany('App\Models\ClubFan');
+      // }
       public function club_member(){
         return $this->hasMany('App\Models\ClubMember');
       }
       public function mypage(){
         return $this->hasMany('App\Models\Mypage');
       }
-      public function strategy(){
-        return $this->hasMany('App\Models\Strategy');
-      }
+      // public function strategy(){
+      //   return $this->hasMany('App\Models\Strategy');
+      // }
       
       public function discussion(){
         return $this->hasMany('App\Models\Discussion');
@@ -78,41 +78,41 @@ class User extends Authenticatable implements JWTSubject
       public function menu(){
         return $this->hasMany('App\Models\Menu');
       }
-      public function menu_count(){
-        return $this->hasMany('App\Models\MenuCount');
-      }
-      public function menu_comments(){
-        return $this->hasMany('App\Models\MenuComment');
-      }
-      public function menu_comment_counts(){
-        return $this->hasMany('App\Models\MenuCommentCount');
-      }
+      // public function menu_count(){
+      //   return $this->hasMany('App\Models\MenuCount');
+      // }
+      // public function menu_comments(){
+      //   return $this->hasMany('App\Models\MenuComment');
+      // }
+      // public function menu_comment_counts(){
+      //   return $this->hasMany('App\Models\MenuCommentCount');
+      // }
       
       public function calendar(){
         return $this->hasMany('App\Models\Calendar');
       }
-      public function calendar_count(){
-        return $this->hasMany('App\Models\CalendarCount');
-      }
-      public function calendar_comments(){
-        return $this->hasMany('App\Models\CalendarComment');
-      }
-      public function calendar_comment_counts(){
-        return $this->hasMany('App\Models\CalendarCommentCount');
-      }
+      // public function calendar_count(){
+      //   return $this->hasMany('App\Models\CalendarCount');
+      // }
+      // public function calendar_comments(){
+      //   return $this->hasMany('App\Models\CalendarComment');
+      // }
+      // public function calendar_comment_counts(){
+      //   return $this->hasMany('App\Models\CalendarCommentCount');
+      // }
       
-      public function journal(){
-        return $this->hasMany('App\Models\Journal');
-      }
-      public function journal_count(){
-        return $this->hasMany('App\Models\JournalCount');
-      }
-      public function journal_comments(){
-        return $this->hasMany('App\Models\JournalComment');
-      }
-      public function journal_comment_counts(){
-        return $this->hasMany('App\Models\JournalCommentCount');
-      }
+      // public function journal(){
+      //   return $this->hasMany('App\Models\Journal');
+      // }
+      // public function journal_count(){
+      //   return $this->hasMany('App\Models\JournalCount');
+      // }
+      // public function journal_comments(){
+      //   return $this->hasMany('App\Models\JournalComment');
+      // }
+      // public function journal_comment_counts(){
+      //   return $this->hasMany('App\Models\JournalCommentCount');
+      // }
       
       public function my_journal(){
         return $this->hasMany('App\Models\MyJournal');
