@@ -8,7 +8,7 @@ use App\Http\Requests\Mypage\Icon as IconRequest;
 use App\Http\Requests\Mypage\StoreMyJournal as StoreMyJournalRequest;
 use App\Http\Requests\Mypage\UpdateMyJournal as UpdateMyJournalRequest;
 
-use App\Http\Resources\User as UserResource;
+use App\Http\Resources\User\User as UserResource;
 use App\Fan;
 use App\MyJournal;
 use App\Mypage;
